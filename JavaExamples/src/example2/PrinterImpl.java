@@ -1,15 +1,14 @@
 package example2;
 
 public class PrinterImpl implements Printer {
-	private final static String prefix = "[JAVA] ";
-	public String sentence;
+	private String prefix;
 
-	public PrinterImpl(String sentence) {
-		this.sentence = sentence;
+	public PrinterImpl(String prefix) {
+		this.prefix = prefix;
 	}
 
 	@Override
-	public void print() {
-		System.out.println(prefix + this.sentence.trim());
+	public void print(String sentence) {
+		System.out.println(this.prefix.trim() + " " + sentence.trim());
 	}
 }
