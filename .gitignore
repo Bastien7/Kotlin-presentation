@@ -4,3 +4,5 @@ PresentationJavaExamples/.settings/org.eclipse.jdt.core.prefs
 PresentationKotlinExamples/.classpath
 KotlinExamples/.classpath
 *.class
+JavaExamples/.classpath.rej
+JavaExamples/.settings/org.eclipse.jdt.core.prefs.rej
