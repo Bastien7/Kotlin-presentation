@@ -1,0 +1,6 @@
+.project
+PresentationJavaExamples/.classpath
+PresentationJavaExamples/.settings/org.eclipse.jdt.core.prefs
+PresentationKotlinExamples/.classpath
+KotlinExamples/.classpath
+*.class
