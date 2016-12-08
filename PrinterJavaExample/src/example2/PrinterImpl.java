@@ -9,6 +9,6 @@ public class PrinterImpl implements Printer {
 
 	@Override
 	public void print(String sentence) {
-		System.out.println(this.prefix.trim() + " " + sentence.trim());
+		System.out.println(this.prefix + sentence.trim());
 	}
 }

@@ -6,3 +6,9 @@ KotlinExamples/.classpath
 *.class
 JavaExamples/.classpath.rej
 JavaExamples/.settings/org.eclipse.jdt.core.prefs.rej
+JavaExamples/.classpath
+Interop/bin/
+*.classpath
+*.rej
+PrinterJavaExample/bin/
+PrinterKotlinExample/bin/
