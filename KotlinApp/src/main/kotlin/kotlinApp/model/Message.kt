@@ -1,3 +1,5 @@
 package kotlinApp.model
 
-data class Message(val message: String)
+import java.time.LocalDateTime
+
+data class Message(val message: String, val date: LocalDateTime)
