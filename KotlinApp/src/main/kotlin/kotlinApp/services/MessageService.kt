@@ -6,4 +6,5 @@ import org.springframework.stereotype.Service
 @Service
 interface MessageService {
 	fun getMessages(): List<Message>
+	fun saveMessage(message: Message)
 }
