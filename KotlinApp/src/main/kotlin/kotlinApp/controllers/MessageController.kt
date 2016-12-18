@@ -1,5 +1,6 @@
 package kotlinApp.controllers
 
+import kotlinApp.model.FormattedMessage
 import kotlinApp.model.Message
 import kotlinApp.services.MessageService
 import org.springframework.beans.factory.annotation.Autowired
@@ -18,14 +19,14 @@ open class MessageController {
 	lateinit var messageService: MessageService
 
 	@GetMapping("/message")
-	open fun getMessages(): List<Message> = messageService.getMessages()
-	
+	open fun getMessages(): List<FormattedMessage> = messageService.getMessages().map { FormattedMessage(it) }
+
 	@PostMapping("/message")
 	open fun saveMessage(@RequestBody text: String) = messageService.saveMessage(Message(text))
-	
+
 	@PutMapping("/message")
-	open fun updateMessage(@RequestBody message: Message) = messageService.updateMessage(message)
-	
+	open fun updateMessage(@RequestBody message: FormattedMessage) = messageService.updateMessage(Message(message))
+
 	@DeleteMapping("/message")
 	open fun deleteMessage(@RequestParam id: String) = messageService.deleteMessage(UUID.fromString(id))
 }

@@ -6,12 +6,9 @@ import java.util.UUID
 
 data class Message(val id: UUID, val content: String, val date: LocalDateTime) {
 	constructor(content: String) : this(UUID.randomUUID(), content, LocalDateTime.now())
-	constructor(message: MessageFormatted) : this(message.id, message.content, message.timestamp.toLocalDateTime())
-	constructor() : this("")
-
-	fun formatted(): MessageFormatted = MessageFormatted(this.id, this.content, Timestamp.valueOf(this.date))
+	constructor(message: FormattedMessage) : this(message.id, message.content, message.timestamp.toLocalDateTime())
 }
 
-data class MessageFormatted(val id: UUID, val content: String, val timestamp: Timestamp) {
-	constructor() : this(UUID.randomUUID(), "", Timestamp.valueOf(LocalDateTime.now()))
+data class FormattedMessage(val id: UUID = UUID.randomUUID(), val content: String = "", val timestamp: Timestamp = Timestamp.valueOf(LocalDateTime.now())) {
+	constructor(message: Message) : this(message.id, message.content, Timestamp.valueOf(message.date))
 }
