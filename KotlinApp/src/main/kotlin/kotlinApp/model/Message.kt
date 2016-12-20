@@ -4,7 +4,9 @@ import java.sql.Timestamp
 import java.time.LocalDateTime
 import java.util.UUID
 
-data class Message(val id: UUID, val content: String, val date: LocalDateTime) {
+import org.springframework.data.annotation.Id;
+
+data class Message(@Id val id: UUID, val content: String, val date: LocalDateTime) {
 	constructor(content: String) : this(UUID.randomUUID(), content, LocalDateTime.now())
 	constructor(message: FormattedMessage) : this(message.id, message.content, message.timestamp.toLocalDateTime())
 }
