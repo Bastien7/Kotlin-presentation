@@ -2,6 +2,7 @@ package kotlinApp.controllers
 
 import kotlinApp.model.FormattedMessage
 import kotlinApp.model.Message
+import kotlinApp.repositories.MessageRepository
 import kotlinApp.services.MessageService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -14,19 +15,17 @@ import org.springframework.web.bind.annotation.RestController
 import java.util.UUID
 
 @RestController
-open class MessageController {
-	@Autowired
-	lateinit var messageService: MessageService
+open class MessageController(val messageRepository: MessageRepository) {
 
 	@GetMapping("/message")
-	open fun getMessages(): List<FormattedMessage> = messageService.getMessages().map { FormattedMessage(it) }
+	open fun getMessages(): List<FormattedMessage> = messageRepository.findAll().map { FormattedMessage(it) }
 
 	@PostMapping("/message")
-	open fun saveMessage(@RequestBody text: String) = messageService.saveMessage(Message(text))
+	open fun saveMessage(@RequestBody text: String) = messageRepository.save(Message(text))
 
 	@PutMapping("/message")
-	open fun updateMessage(@RequestBody message: FormattedMessage) = messageService.updateMessage(Message(message))
+	open fun updateMessage(@RequestBody message: FormattedMessage) = messageRepository.save(Message(message))
 
 	@DeleteMapping("/message")
-	open fun deleteMessage(@RequestParam id: String) = messageService.deleteMessage(UUID.fromString(id))
+	open fun deleteMessage(@RequestParam id: String) = messageRepository.delete(UUID.fromString(id))
 }

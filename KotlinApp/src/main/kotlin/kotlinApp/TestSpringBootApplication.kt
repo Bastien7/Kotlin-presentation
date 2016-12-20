@@ -1,9 +1,9 @@
-package kotlinApp.application
+package kotlinApp
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
-@SpringBootApplication(scanBasePackages = arrayOf("kotlinApp.controllers", "kotlinApp.servicesImpl"))
+@SpringBootApplication
 open class TestSpringBootApplication
 
 fun main(args: Array<String>) {
