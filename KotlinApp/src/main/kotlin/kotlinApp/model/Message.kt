@@ -6,8 +6,8 @@ import java.util.UUID
 
 import org.springframework.data.annotation.Id;
 
-data class Message(@Id val id: UUID, val content: String, val date: LocalDateTime) {
-	constructor(content: String) : this(UUID.randomUUID(), content, LocalDateTime.now())
+data class Message(@Id val id: UUID = UUID.randomUUID(), val content: String = "", val date: LocalDateTime = LocalDateTime.now()) {
+	constructor(messageContent: String) : this(content = messageContent)
 	constructor(message: FormattedMessage) : this(message.id, message.content, message.timestamp.toLocalDateTime())
 }
 

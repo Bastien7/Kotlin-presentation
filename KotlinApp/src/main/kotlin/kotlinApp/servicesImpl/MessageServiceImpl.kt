@@ -16,12 +16,10 @@ class MessageServiceImpl() : MessageService {
 	}
 
 	override fun updateMessage(message: Message) {
-		println(message)
 		storedMessages = storedMessages.filter { it.id != message.id }.plus(message)
 	}
 
 	override fun deleteMessage(id: UUID) {
 		storedMessages = storedMessages.filter { it.id != id }
 	}
-
 }
