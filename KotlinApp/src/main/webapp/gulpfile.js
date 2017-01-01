@@ -2,7 +2,7 @@ var connect             = require('gulp-connect'),
     del                 = require('del'),
     gulp                = require('gulp'),
     runSequence         = require('run-sequence');
-
+	
 require('./gulp/lint');
 require('./gulp/sass');
 require('./gulp/browserify');
@@ -14,11 +14,9 @@ gulp.task('clean', function (cb) {
 gulp.task('serve', function() {
 
     connect.server({
-        port: 9999,
+        port: 8111,
         root: './client-app/build',
-        livereload: {
-            port: 35111
-        }
+        livereload: true
     });
 
 });
@@ -30,8 +28,10 @@ gulp.task('html', function(){
 });
 
 gulp.task('watch', ['watchify'], function(cb) {
-    gulp.watch(['./client-app/js/**/*.js', './client-app/js/**/*.jsx'], ['lint-dev']);
-    gulp.watch(['./client-app/css/**/*.scss'], ['sass-dev']);
+    gulp.watch(['./client-app/js/**/*.js', './client-app/js/**/*.jsx',
+		 './client-app/js/*.jsx'
+	], ['lint-dev']);
+    gulp.watch(['./client-app/css/**/*.scss', './client-app/css/*.scss'], ['sass-dev']);
     gulp.watch('./client-app/index.html', ['html']);
     cb();
 });

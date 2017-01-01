@@ -14,7 +14,7 @@ class TestView extends React.Component {
             <h1 className="title">App page</h1>
 			<div>
 				<MuiThemeProvider>
-					<FlatButton label="Click here!"/>
+					<FlatButton label="Click here !"/>
 				</MuiThemeProvider>
 			</div>
         </div>

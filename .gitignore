@@ -13,3 +13,4 @@ Interop/bin/
 PrinterJavaExample/bin/
 PrinterKotlinExample/bin/
 KotlinApp/src/main/resources/static/node_modules/
+KotlinApp/src/main/webapp/node_modules/

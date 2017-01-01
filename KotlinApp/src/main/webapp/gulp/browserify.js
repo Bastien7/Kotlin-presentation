@@ -33,9 +33,7 @@ var runBrowserifyTask = function (options) {
     var bundle = function() {
         // Log when bundling starts
         bundleLogger.start();
-
         return bundler
-
             .bundle()
             // Report compile errors
             .on('error', handleErrors)

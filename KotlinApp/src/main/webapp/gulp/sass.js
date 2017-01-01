@@ -16,7 +16,7 @@ var connect      = require('gulp-connect'),
  *      Generate a .map file (for debugging purpose only)
  */
 var sassTask = function(exit, options) {
-    return gulp.src('./client-app/main.scss')
+    return gulp.src('./client-app/css/main.scss')
         .pipe(gulpif(options.sourceMaps, sourcemaps.init()))
         .pipe(sass({
             outputStyle: gulpif(options.compress, "compressed", "nested"),
@@ -25,7 +25,7 @@ var sassTask = function(exit, options) {
         .on('error', handleErrors)
         .on('error', exitProcess(exit))
         .pipe(gulpif(options.sourceMaps, sourcemaps.write('.')))
-        .pipe(gulp.dest('./client-app/build/css/'))
+        .pipe(gulp.dest('./client-app/build/'))
         .pipe(connect.reload());
 };
 
