@@ -1,3 +1,20 @@
-.title {
-	color: red;
+@import "font-awesome/scss/font-awesome";
+
+#wrapper {
+	max-width: 700px;
+	margin: 0 auto;
+	height: 100%;
+	
+	#appContent {
+		border: solid 1px #d9d9d9;
+		overflow: hidden;
+		height: 100%;
+	}
+}
+
+
+.question-button {
+    margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }

@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDom from "react-dom";
-import TestView from "./TestView";
+import Home from "./views/Home";
 
-ReactDom.render(<TestView />, document.getElementById("react-application"));
+ReactDom.render(<Home />, document.getElementById("react-application"));

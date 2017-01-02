@@ -27,6 +27,12 @@ gulp.task('html', function(){
         .pipe(connect.reload());
 });
 
+gulp.task('fonts',  function(cb){
+    gulp.src('./src/fonts/**/*.{eot,svg,ttf,woff,woff2}')
+        .pipe(gulp.dest('./demo/build/fonts/'));
+    cb();
+});
+
 gulp.task('watch', ['watchify'], function(cb) {
     gulp.watch(['./client-app/js/**/*.js', './client-app/js/**/*.jsx',
 		 './client-app/js/*.jsx'
@@ -40,7 +46,7 @@ gulp.task('default', function(cb){
     runSequence(
         'clean',
         'lint-dev',
-        ['sass-dev', 'html'],
+        ['sass-dev', 'html', 'fonts'],
         'watch',
         'serve',
         cb
