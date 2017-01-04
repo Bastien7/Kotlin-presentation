@@ -1,5 +1,8 @@
-import React from 'react';
-import {List, ListItem, Subheader, RaisedButton, FontIcon } from 'material-ui';
+import React from "react";
+import Reflux from "reflux";
+import {List, ListItem, Subheader, RaisedButton, FontIcon } from "material-ui";
+import MessageActions from "../actions/MessageActions";
+import TopicStore from "../stores/TopicStore";
 
 const Topic = (props) => (
 	<ListItem
@@ -8,7 +11,7 @@ const Topic = (props) => (
 	/>
 );
 
-class TopicList extends React.Component {
+class TopicList extends Reflux.Component {
 	constructor() {
 		super()
 		
@@ -18,11 +21,16 @@ class TopicList extends React.Component {
 		];
 		
 		this.state = {topics: defaultTopics};
+		this.store = TopicStore;
 	}
+	
+	onClickCreateQuestion = () => MessageActions.getMessages();
 		
 	render = () => (
 		<div>
-			<RaisedButton className="question-button" label="Ask a question" secondary/>
+			<div className="question-button">
+				<RaisedButton secondary label="Ask a question" onClick={this.onClickCreateQuestion}/>
+			</div>
 			<List>
 				<Subheader>Questions</Subheader>
 				{this.state.topics.map((topic, index) => <Topic key={index} topic={topic}/>)}

@@ -9,13 +9,14 @@
   "dependencies": {
     "classnames": "^2.2.0",
     "font-awesome": "^4.6.3",
+    "jquery": "^3.1.1",
     "lodash": "^4.5.1",
     "material-ui": "^0.16.6",
     "react": "15.0.0",
     "react-dom": "15.0.0",
     "react-tap-event-plugin": "^2.0.1",
     "react-tooltip": "3.2.1",
-    "reflux": "^0.3.0"
+    "reflux": "^5.0.4"
   },
   "devDependencies": {
     "babel": "^6.3.13",
