@@ -1,4 +1,4 @@
-const $ = require("jquery");
+import $ from "jquery";
 
 class CallAjax {
     constructor(ajaxQuery) {
