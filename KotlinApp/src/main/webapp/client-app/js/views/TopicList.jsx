@@ -31,10 +31,12 @@ class TopicList extends Reflux.Component {
 			<div className="question-button">
 				<RaisedButton secondary label="Ask a question" onClick={this.onClickCreateQuestion}/>
 			</div>
-			<List>
-				<Subheader>Questions</Subheader>
-				{this.state.topics.map((topic, index) => <Topic key={index} topic={topic}/>)}
-			</List>  
+			{this.state.topics.length > 0 ?
+				<List>
+					<Subheader>Questions</Subheader>
+					{this.state.topics.map((topic, index) => <Topic key={index} topic={topic}/>)}
+				</List> : null
+			}
 		</div>
 	);
 }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController
 import java.util.UUID
 
 @RestController
-@RequestMapping("/messages")
+@RequestMapping("/message")
 open class MessageController(val messageRepository: MessageRepository) {
 
 	@GetMapping
