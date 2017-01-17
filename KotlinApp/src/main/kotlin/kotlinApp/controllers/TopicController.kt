@@ -1,7 +1,7 @@
 package kotlinApp.controllers
 
-import kotlinApp.model.Message
-import kotlinApp.repositories.MessageRepository
+import kotlinApp.model.Topic
+import kotlinApp.repositories.TopicRepository
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -13,18 +13,18 @@ import org.springframework.web.bind.annotation.RestController
 import java.util.UUID
 
 @RestController
-@RequestMapping("/message")
-open class MessageController(val messageRepository: MessageRepository) {
+@RequestMapping("/topic")
+open class TopicController(val topicRepository: TopicRepository) {
 
 	@GetMapping
-	open fun getMessages(): List<Message> = messageRepository.findAll()
+	open fun getMessages(): List<Topic> = topicRepository.findAll()
 
 	@PostMapping
-	open fun saveMessage(@RequestBody text: String) = messageRepository.save(Message(text))
+	open fun saveMessage(@RequestBody topic: Topic) = topicRepository.save(topic)
 
 	@PutMapping
-	open fun updateMessage(@RequestBody message: Message) = messageRepository.save(message)
+	open fun updateMessage(@RequestBody topic: Topic) = topicRepository.save(topic)
 
 	@DeleteMapping
-	open fun deleteMessage(@RequestParam id: String) = messageRepository.delete(UUID.fromString(id))
+	open fun deleteMessage(@RequestParam id: String) = topicRepository.delete(UUID.fromString(id))
 }
