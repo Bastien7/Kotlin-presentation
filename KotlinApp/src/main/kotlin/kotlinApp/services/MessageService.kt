@@ -9,5 +9,5 @@ interface MessageService {
 	fun getMessages(): List<Message>
 	fun saveMessage(message: Message)
 	fun updateMessage(message: Message)
-	fun deleteMessage(id: UUID)
+	fun deleteMessage(id: String)
 }

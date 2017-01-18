@@ -1,6 +1,11 @@
 package kotlinApp.model
 
-import java.sql.Timestamp
+import org.springframework.data.annotation.Id
 import java.time.LocalDateTime
 
-data class Topic(val question: String = "", val messages: List<Message> = listOf(), val date: Timestamp = Timestamp.valueOf(LocalDateTime.now()))
+data class Topic(
+		@Id val id: String? = null,
+		val question: String = "",
+		val answers: List<Message> = listOf(),
+		val date: LocalDateTime = LocalDateTime.now()
+)
