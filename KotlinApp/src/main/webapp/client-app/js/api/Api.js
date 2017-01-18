@@ -10,6 +10,14 @@ class MessageApi {
 	static deleteMessage = (message) => CallAjax.delete(MessageApi.API, message.id);
 }
 
+class TopicApi {
+	static API = Configuration.backendApi + "topic";
+	
+	static getTopics = () => CallAjax.get(TopicApi.API);
+	static createTopic = (question) => CallAjax.post(TopicApi.API, {content: question});
+}
+
 module.exports = {
-	MessageApi
+	MessageApi,
+	TopicApi
 };

@@ -13,7 +13,7 @@ class CallAjax {
 
         if(data) {
             configuration.data = JSON.stringify(data);
-            configuration.contentType = 'text/json';
+            configuration.contentType = 'application/json';
         }
 
         return new CallAjax($.ajax(configuration));
@@ -43,5 +43,3 @@ class CallAjax {
 }
 
 module.exports = CallAjax;
-
-0
