@@ -26,5 +26,5 @@ open class MessageController(val messageRepository: MessageRepository) {
 	open fun updateMessage(@RequestBody message: Message) = messageRepository.save(message)
 
 	@DeleteMapping
-	open fun deleteMessage(@RequestParam id: String) = messageRepository.delete(UUID.fromString(id))
+	open fun deleteMessage(@RequestParam id: String) = messageRepository.delete(id)
 }
