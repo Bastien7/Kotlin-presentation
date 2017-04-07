@@ -2,11 +2,11 @@ package reference
 
 fun main(args: Array<String>) {
     val people1: People = generatePeople()
-    people1.age = 56454
+    people1.age = 50
 
     /*
     val people2: People = null
-    println(people2.name) //NullPointerException
+    println(people2.name) //Would throw NullPointerException in Java
     */
 
     //Option
@@ -19,7 +19,7 @@ fun main(args: Array<String>) {
     val name: String = people3?.name ?: "default name"
 
     //Smart cast
-    if(people3 is People) {
+    if (people3 is People) {
         val age = people3.age //Here, people3 has the type People and not People?
     }
 
@@ -32,6 +32,32 @@ fun main(args: Array<String>) {
 
 
     //Functional programming
-    val serie = 1..7
-    serie.map {  }
+    val languages = listOf("Java", "Scala", "Kotlin")
+    languages.forEach { language -> println(language) }
+    languages.forEach { println(it) }
+
+    println(languages.map { it.get(0) })
+    println(languages.filter { it.toLowerCase().contains("k") })
+
+    //Extensions
+    println(generatePeople().toJson())
+    println((1..10).map { it.isEven() })
+
+
+    val result: Integer? = try {
+        throw Exception("There is an error")
+    } catch(e: Exception) {
+        println("[ERROR] $e")
+        null
+    }
+
+    repeat(3) { println("Kotlin is the best!")}
+}
+
+//Extensions
+fun Int.isEven() = this % 2 == 0
+fun People.toJson(): String = "{ name: ${this.name}, age: ${this.age} }"
+
+fun <A, B> repeat(job: (A) -> B, times: Int) {
+    (1..times).forEach { job }
 }
