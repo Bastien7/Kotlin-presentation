@@ -1,5 +1,6 @@
 package printer;
 
+//Kotlin is designed with Java Interoperability in mind
 public class ExampleInterop {
 
 	public static void main(String[] args) {
